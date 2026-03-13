@@ -847,11 +847,11 @@
             if (midiAccess) {
                 scanOutputs();
             } else {
-                // iOS requires user gesture to init MIDI
-        // Show "TAP" hint, init on first tap
+                // Show initial debug state
+        updateDebug();
         document.getElementById('midiLabel').textContent = 'TAP TO CONNECT';
-        // Also try auto-init after a short delay (works on some browsers)
-        setTimeout(initMIDI, 500);
+        // Auto-init after short delay
+        setTimeout(initMIDI, 800);
             }
             // Flash the dot
             const dot = document.getElementById('midiDot');
@@ -859,11 +859,11 @@
             setTimeout(() => updateMidiStatus(), 800);
         }
 
-        // iOS requires user gesture to init MIDI
-        // Show "TAP" hint, init on first tap
+        // Show initial debug state
+        updateDebug();
         document.getElementById('midiLabel').textContent = 'TAP TO CONNECT';
-        // Also try auto-init after a short delay (works on some browsers)
-        setTimeout(initMIDI, 500);
+        // Auto-init after short delay
+        setTimeout(initMIDI, 800);
 
         function showIOSBanner() {
             const dismissed = sessionStorage.getItem('ios-banner-dismissed');
